@@ -1,0 +1,31 @@
+@if (responseArray.isLoading()) {
+    <p>
+        Loading...
+    </p>
+} @else {
+    @for (item of responseArray.value(); track $index) {
+        <p>
+            {{ item }}
+        </p>
+    } @empty {
+        <p>
+            No data
+        </p>
+    }
+}
+
+@if (response.isLoading()) {
+    <p>
+        Loading...
+    </p>
+} @else {
+    @if (!response.hasValue()) {
+        <p>
+            No data
+        </p>
+    } @else {
+        <p>
+            {{ response.value() }}
+        </p>
+    }
+}

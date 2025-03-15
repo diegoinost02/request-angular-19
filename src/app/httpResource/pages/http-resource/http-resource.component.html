@@ -1,0 +1,31 @@
+@if (response.isLoading()) {
+    <p>
+        Loading...
+    </p>
+} @else {
+    @for (item of response.value(); track $index) {
+        <p>
+            {{ item }}
+        </p>
+    } @empty {
+        <p>
+            No data
+        </p>
+    }
+}
+
+@if (responseWithDependency.isLoading()) {
+    <p>
+        Loading...
+    </p>
+} @else {
+    @if (!responseWithDependency.hasValue()) {
+        <p>
+            No data
+        </p>
+    } @else {
+        <p>
+            {{ responseWithDependency.value() }}
+        </p>
+    }
+}
